@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (5.6.4)
+  - AWSCore (2.30.4)
+  - AWSDynamoDB (2.30.4):
+    - AWSCore (= 2.30.4)
+  - AWSLambda (2.30.4):
+    - AWSCore (= 2.30.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - AWSCore
+  - AWSDynamoDB
+  - AWSLambda
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AWSCore
+    - AWSDynamoDB
+    - AWSLambda
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  AWSCore: 19b8233fe2d0ed3ccf5cff833a615814282cdc90
+  AWSDynamoDB: ecb8e269e2cec58eb620a31b29bb34ab44355cf2
+  AWSLambda: a95fdc717697e25200a22f7c63c50f8b4af2d87d
+
+PODFILE CHECKSUM: 87d96e0394c9cbab7f37271c639b79090c27d730
+
+COCOAPODS: 1.11.3

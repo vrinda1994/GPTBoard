@@ -1,0 +1,6 @@
+framework module Pods_GPTBoardTests {
+  umbrella header "Pods-GPTBoardTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
