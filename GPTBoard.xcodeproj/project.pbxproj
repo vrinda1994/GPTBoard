@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		1120A38F1C3DD7E7DF5E64F0 /* Pods_GPTBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EB5495B4B8DC01B242C7ED /* Pods_GPTBoard.framework */; };
 		820CA984ACF69B2576E6F43F /* Pods_GPTBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFADC88CC3C5FE59F91D06D /* Pods_GPTBoardTests.framework */; };
+		A11C2B5B2E5D806900256B32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11C2B5A2E5D806900256B32 /* GoogleService-Info.plist */; };
+		A11C2B5C2E6652F500256B32 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D1D7429E936EC00DF135A /* APIManager.swift */; };
 		CE4D1D6729E69D7B00DF135A /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D1D6629E69D7B00DF135A /* CustomInputView.swift */; };
 		CE4D1D6F29E6A3FD00DF135A /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D1D6E29E6A3FD00DF135A /* CustomInputAccessoryView.swift */; };
 		CE4D1D7129E9368B00DF135A /* ChatGPTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D1D7029E9368B00DF135A /* ChatGPTHandler.swift */; };
-		CE4D1D7329E936CF00DF135A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D1D7229E936CF00DF135A /* ViewController.swift */; };
 		CE4D1D7529E936EC00DF135A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D1D7429E936EC00DF135A /* APIManager.swift */; };
 		CE4D1D7629E9384600DF135A /* ChatGPTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D1D7029E9368B00DF135A /* ChatGPTHandler.swift */; };
 		CEA4FA2929E534FA008E86EA /* GPTBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4FA2829E534FA008E86EA /* GPTBoardApp.swift */; };
@@ -25,7 +26,6 @@
 		CEA4FA5929E53553008E86EA /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4FA5829E53553008E86EA /* KeyboardViewController.swift */; };
 		CEA4FA5D29E53553008E86EA /* CustomKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CEA4FA5629E53552008E86EA /* CustomKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CEA4FA6529E535D4008E86EA /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4FA6429E535D4008E86EA /* BackgroundTaskManager.swift */; };
-		CEA4FA6929E53621008E86EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4FA6829E53621008E86EA /* SceneDelegate.swift */; };
 		D9A5B748A7CEFAF537BEA182 /* Pods_CustomKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C6AFCDAB7420B33810D2DB /* Pods_CustomKeyboard.framework */; };
 		EF9D3ABC99714E17767F42E5 /* Pods_GPTBoard_GPTBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF98E28E7A881CEDBEFD58A /* Pods_GPTBoard_GPTBoardUITests.framework */; };
 /* End PBXBuildFile section */
@@ -78,12 +78,12 @@
 		865F5FA99FC79786FCEC6B78 /* Pods-GPTBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPTBoard.release.xcconfig"; path = "Target Support Files/Pods-GPTBoard/Pods-GPTBoard.release.xcconfig"; sourceTree = "<group>"; };
 		89C6AFCDAB7420B33810D2DB /* Pods_CustomKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F789E5DEF9271FBC20A6B79 /* Pods-GPTBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPTBoard.debug.xcconfig"; path = "Target Support Files/Pods-GPTBoard/Pods-GPTBoard.debug.xcconfig"; sourceTree = "<group>"; };
+		A11C2B5A2E5D806900256B32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B03D9586F6E1E3BDFFA05599 /* Pods-GPTBoard-GPTBoardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPTBoard-GPTBoardUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPTBoard-GPTBoardUITests/Pods-GPTBoard-GPTBoardUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAFE10BB33BD54C4030D2496 /* Pods-CustomKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomKeyboard.debug.xcconfig"; path = "Target Support Files/Pods-CustomKeyboard/Pods-CustomKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		CE4D1D6629E69D7B00DF135A /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 		CE4D1D6E29E6A3FD00DF135A /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		CE4D1D7029E9368B00DF135A /* ChatGPTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTHandler.swift; sourceTree = "<group>"; };
-		CE4D1D7229E936CF00DF135A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE4D1D7429E936EC00DF135A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		CE4D1D7729E9429D00DF135A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CEA4FA2529E534FA008E86EA /* GPTBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPTBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +102,6 @@
 		CEA4FA6229E5356E008E86EA /* CustomKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CustomKeyboard.entitlements; sourceTree = "<group>"; };
 		CEA4FA6329E53578008E86EA /* GPTBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPTBoard.entitlements; sourceTree = "<group>"; };
 		CEA4FA6429E535D4008E86EA /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
-		CEA4FA6829E53621008E86EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EFFADC88CC3C5FE59F91D06D /* Pods_GPTBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPTBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -184,6 +183,7 @@
 		CEA4FA2729E534FA008E86EA /* GPTBoard */ = {
 			isa = PBXGroup;
 			children = (
+				A11C2B5A2E5D806900256B32 /* GoogleService-Info.plist */,
 				CE4D1D7729E9429D00DF135A /* Info.plist */,
 				CEA4FA6329E53578008E86EA /* GPTBoard.entitlements */,
 				CEA4FA2829E534FA008E86EA /* GPTBoardApp.swift */,
@@ -192,8 +192,6 @@
 				CEA4FA2E29E534FD008E86EA /* Preview Content */,
 				CEA4FA6429E535D4008E86EA /* BackgroundTaskManager.swift */,
 				CE4D1D7029E9368B00DF135A /* ChatGPTHandler.swift */,
-				CEA4FA6829E53621008E86EA /* SceneDelegate.swift */,
-				CE4D1D7229E936CF00DF135A /* ViewController.swift */,
 				CE4D1D7429E936EC00DF135A /* APIManager.swift */,
 			);
 			path = GPTBoard;
@@ -382,6 +380,7 @@
 			files = (
 				CEA4FA3029E534FD008E86EA /* Preview Assets.xcassets in Resources */,
 				CEA4FA2D29E534FD008E86EA /* Assets.xcassets in Resources */,
+				A11C2B5B2E5D806900256B32 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,9 +438,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GPTBoard-GPTBoardUITests/Pods-GPTBoard-GPTBoardUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GPTBoard-GPTBoardUITests/Pods-GPTBoard-GPTBoardUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -500,9 +503,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GPTBoard/Pods-GPTBoard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GPTBoard/Pods-GPTBoard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -538,12 +545,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4D1D7329E936CF00DF135A /* ViewController.swift in Sources */,
 				CEA4FA2B29E534FA008E86EA /* ContentView.swift in Sources */,
 				CEA4FA6529E535D4008E86EA /* BackgroundTaskManager.swift in Sources */,
 				CE4D1D7129E9368B00DF135A /* ChatGPTHandler.swift in Sources */,
 				CEA4FA2929E534FA008E86EA /* GPTBoardApp.swift in Sources */,
-				CEA4FA6929E53621008E86EA /* SceneDelegate.swift in Sources */,
 				CE4D1D7529E936EC00DF135A /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,6 +576,7 @@
 			files = (
 				CE4D1D7629E9384600DF135A /* ChatGPTHandler.swift in Sources */,
 				CE4D1D6729E69D7B00DF135A /* CustomInputView.swift in Sources */,
+				A11C2B5C2E6652F500256B32 /* APIManager.swift in Sources */,
 				CEA4FA5929E53553008E86EA /* KeyboardViewController.swift in Sources */,
 				CE4D1D6F29E6A3FD00DF135A /* CustomInputAccessoryView.swift in Sources */,
 			);

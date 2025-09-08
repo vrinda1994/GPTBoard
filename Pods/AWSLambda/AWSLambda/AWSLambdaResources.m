@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -157,7 +157,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and invokes the function.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\\\"> Apache Kafka</a> </p> </li> </ul> <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> â If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> â Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> â Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> â Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> â Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\\\"> Apache Kafka</a> </p> </li> </ul>\"\
+      \"documentation\":\"<p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and invokes the function.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\\\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html\\\"> Amazon DocumentDB</a> </p> </li> </ul> <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> â If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> â Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> â Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> â Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> â Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\\\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration\\\"> Amazon DocumentDB</a> </p> </li> </ul>\"\
     },\
     \"CreateFunction\":{\
       \"name\":\"CreateFunction\",\
@@ -246,6 +246,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"InvalidParameterValueException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"ResourceConflictException\"},\
         {\"shape\":\"ResourceInUseException\"}\
       ],\
       \"documentation\":\"<p>Deletes an <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html\\\">event source mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p> <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely deleted for several seconds.</p>\"\
@@ -265,7 +266,7 @@
         {\"shape\":\"InvalidParameterValueException\"},\
         {\"shape\":\"ResourceConflictException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter. Otherwise, all versions and aliases are deleted.</p> <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.</p>\"\
+      \"documentation\":\"<p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter. Otherwise, all versions and aliases are deleted. This doesn't require the user to have explicit permissions for <a>DeleteAlias</a>.</p> <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.</p>\"\
     },\
     \"DeleteFunctionCodeSigningConfig\":{\
       \"name\":\"DeleteFunctionCodeSigningConfig\",\
@@ -673,9 +674,10 @@
         {\"shape\":\"KMSNotFoundException\"},\
         {\"shape\":\"InvalidRuntimeException\"},\
         {\"shape\":\"ResourceConflictException\"},\
-        {\"shape\":\"ResourceNotReadyException\"}\
+        {\"shape\":\"ResourceNotReadyException\"},\
+        {\"shape\":\"RecursiveInvocationException\"}\
       ],\
-      \"documentation\":\"<p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or asynchronously. To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>.</p> <p>For <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html\\\">synchronous invocation</a>, details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html\\\">execution log</a> and <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html\\\">trace</a>.</p> <p>When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-retries.html\\\">Error handling and automatic retries in Lambda</a>.</p> <p>For <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html\\\">asynchronous invocation</a>, Lambda adds events to a queue before sending them to your function. If your function does not have enough capacity to keep up with the queue, events may be lost. Occasionally, your function may receive the same event multiple times, even if no error occurs. To retain events that were not processed, configure your function with a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq\\\">dead-letter queue</a>.</p> <p>The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\\\">quota</a> errors, or issues with your function's code and configuration. For example, Lambda returns <code>TooManyRequestsException</code> if running the function would cause you to exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>) or function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p> <p>For functions with a long timeout, your client might disconnect during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.</p> <p>This operation requires permission for the <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html\\\">lambda:InvokeFunction</a> action. For details on how to set up permissions for cross-account invocations, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke\\\">Granting function access to other accounts</a>.</p>\"\
+      \"documentation\":\"<p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or asynchronously. By default, Lambda invokes your function synchronously (i.e. the<code>InvocationType</code> is <code>RequestResponse</code>). To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p> <p>For <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html\\\">synchronous invocation</a>, details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html\\\">execution log</a> and <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html\\\">trace</a>.</p> <p>When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-retries.html\\\">Error handling and automatic retries in Lambda</a>.</p> <p>For <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html\\\">asynchronous invocation</a>, Lambda adds events to a queue before sending them to your function. If your function does not have enough capacity to keep up with the queue, events may be lost. Occasionally, your function may receive the same event multiple times, even if no error occurs. To retain events that were not processed, configure your function with a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq\\\">dead-letter queue</a>.</p> <p>The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\\\">quota</a> errors, or issues with your function's code and configuration. For example, Lambda returns <code>TooManyRequestsException</code> if running the function would cause you to exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>) or function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p> <p>For functions with a long timeout, your client might disconnect during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.</p> <p>This operation requires permission for the <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html\\\">lambda:InvokeFunction</a> action. For details on how to set up permissions for cross-account invocations, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke\\\">Granting function access to other accounts</a>.</p>\"\
     },\
     \"InvokeAsync\":{\
       \"name\":\"InvokeAsync\",\
@@ -693,8 +695,50 @@
         {\"shape\":\"InvalidRuntimeException\"},\
         {\"shape\":\"ResourceConflictException\"}\
       ],\
-      \"documentation\":\"<important> <p>For asynchronous function invocation, use <a>Invoke</a>.</p> </important> <p>Invokes a function asynchronously.</p>\",\
+      \"documentation\":\"<important> <p>For asynchronous function invocation, use <a>Invoke</a>.</p> </important> <p>Invokes a function asynchronously.</p> <note> <p>If you do use the InvokeAsync action, note that it doesn't support the use of X-Ray active tracing. Trace ID is not propagated to the function, even if X-Ray active tracing is turned on.</p> </note>\",\
       \"deprecated\":true\
+    },\
+    \"InvokeWithResponseStream\":{\
+      \"name\":\"InvokeWithResponseStream\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/2021-11-15/functions/{FunctionName}/response-streaming-invocations\"\
+      },\
+      \"input\":{\"shape\":\"InvokeWithResponseStreamRequest\"},\
+      \"output\":{\"shape\":\"InvokeWithResponseStreamResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ServiceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestContentException\"},\
+        {\"shape\":\"RequestTooLargeException\"},\
+        {\"shape\":\"UnsupportedMediaTypeException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"EC2UnexpectedException\"},\
+        {\"shape\":\"SubnetIPAddressLimitReachedException\"},\
+        {\"shape\":\"ENILimitReachedException\"},\
+        {\"shape\":\"EFSMountConnectivityException\"},\
+        {\"shape\":\"EFSMountFailureException\"},\
+        {\"shape\":\"EFSMountTimeoutException\"},\
+        {\"shape\":\"EFSIOException\"},\
+        {\"shape\":\"SnapStartException\"},\
+        {\"shape\":\"SnapStartTimeoutException\"},\
+        {\"shape\":\"SnapStartNotReadyException\"},\
+        {\"shape\":\"EC2ThrottledException\"},\
+        {\"shape\":\"EC2AccessDeniedException\"},\
+        {\"shape\":\"InvalidSubnetIDException\"},\
+        {\"shape\":\"InvalidSecurityGroupIDException\"},\
+        {\"shape\":\"InvalidZipFileException\"},\
+        {\"shape\":\"KMSDisabledException\"},\
+        {\"shape\":\"KMSInvalidStateException\"},\
+        {\"shape\":\"KMSAccessDeniedException\"},\
+        {\"shape\":\"KMSNotFoundException\"},\
+        {\"shape\":\"InvalidRuntimeException\"},\
+        {\"shape\":\"ResourceConflictException\"},\
+        {\"shape\":\"ResourceNotReadyException\"},\
+        {\"shape\":\"RecursiveInvocationException\"}\
+      ],\
+      \"documentation\":\"<p>Configure your Lambda functions to stream response payloads back to clients. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html\\\">Configuring a Lambda function to stream responses</a>.</p> <p>This operation requires permission for the <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html\\\">lambda:InvokeFunction</a> action. For details on how to set up permissions for cross-account invocations, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke\\\">Granting function access to other accounts</a>.</p>\"\
     },\
     \"ListAliases\":{\
       \"name\":\"ListAliases\",\
@@ -1143,7 +1187,7 @@
         {\"shape\":\"ResourceConflictException\"},\
         {\"shape\":\"ResourceInUseException\"}\
       ],\
-      \"documentation\":\"<p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\\\"> Apache Kafka</a> </p> </li> </ul> <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> â If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> â Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> â Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> â Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> â Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\\\"> Apache Kafka</a> </p> </li> </ul>\"\
+      \"documentation\":\"<p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\\\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html\\\"> Amazon DocumentDB</a> </p> </li> </ul> <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> â If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> â Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> â Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> â Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> â Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\\\"> Apache Kafka</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration\\\"> Amazon DocumentDB</a> </p> </li> </ul>\"\
     },\
     \"UpdateFunctionCode\":{\
       \"name\":\"UpdateFunctionCode\",\
@@ -1342,7 +1386,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -1491,6 +1535,17 @@
         }\
       },\
       \"documentation\":\"<p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>\"\
+    },\
+    \"ApplicationLogLevel\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"TRACE\",\
+        \"DEBUG\",\
+        \"INFO\",\
+        \"WARN\",\
+        \"ERROR\",\
+        \"FATAL\"\
+      ]\
     },\
     \"Architecture\":{\
       \"type\":\"string\",\
@@ -1689,7 +1744,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -1745,11 +1800,11 @@
       \"members\":{\
         \"EventSourceArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> â The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> â The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> â The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> â The ARN of the cluster.</p> </li> <li> <p> <b>Amazon MQ</b> â The ARN of the broker.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> â The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> â The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> â The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> â The ARN of the cluster or the ARN of the VPC connection (for <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc\\\">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> â The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> â The ARN of the DocumentDB change stream.</p> </li> </ul>\"\
         },\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>\"\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>\"\
         },\
         \"Enabled\":{\
           \"shape\":\"Enabled\",\
@@ -1757,7 +1812,7 @@
         },\
         \"BatchSize\":{\
           \"shape\":\"BatchSize\",\
-          \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> â Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> â Default 100. Max 10,000.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> â Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> â Default 100. Max 10,000.</p> </li> </ul>\"\
         },\
         \"FilterCriteria\":{\
           \"shape\":\"FilterCriteria\",\
@@ -1765,39 +1820,39 @@
         },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
-          \"documentation\":\"<p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>\"\
+          \"documentation\":\"<p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>\"\
         },\
         \"ParallelizationFactor\":{\
           \"shape\":\"ParallelizationFactor\",\
-          \"documentation\":\"<p>(Streams only) The number of batches to process from each shard concurrently.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>\"\
         },\
         \"StartingPosition\":{\
           \"shape\":\"EventSourcePosition\",\
-          \"documentation\":\"<p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams.</p>\"\
+          \"documentation\":\"<p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>\"\
         },\
         \"StartingPositionTimestamp\":{\
           \"shape\":\"Date\",\
-          \"documentation\":\"<p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.</p>\"\
+          \"documentation\":\"<p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>\"\
         },\
         \"DestinationConfig\":{\
           \"shape\":\"DestinationConfig\",\
-          \"documentation\":\"<p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>\"\
+          \"documentation\":\"<p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Kafka only) A configuration object that specifies the destination of an event after Lambda processes it.</p>\"\
         },\
         \"MaximumRecordAgeInSeconds\":{\
           \"shape\":\"MaximumRecordAgeInSeconds\",\
-          \"documentation\":\"<p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>\"\
         },\
         \"BisectBatchOnFunctionError\":{\
           \"shape\":\"BisectBatchOnFunctionError\",\
-          \"documentation\":\"<p>(Streams only) If the function returns an error, split the batch in two and retry.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.</p>\"\
         },\
         \"MaximumRetryAttempts\":{\
           \"shape\":\"MaximumRetryAttemptsEventSourceMapping\",\
-          \"documentation\":\"<p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>\"\
         },\
         \"TumblingWindowInSeconds\":{\
           \"shape\":\"TumblingWindowInSeconds\",\
-          \"documentation\":\"<p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>\"\
         },\
         \"Topics\":{\
           \"shape\":\"Topics\",\
@@ -1817,7 +1872,7 @@
         },\
         \"FunctionResponseTypes\":{\
           \"shape\":\"FunctionResponseTypeList\",\
-          \"documentation\":\"<p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>\"\
+          \"documentation\":\"<p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>\"\
         },\
         \"AmazonManagedKafkaEventSourceConfig\":{\
           \"shape\":\"AmazonManagedKafkaEventSourceConfig\",\
@@ -1847,7 +1902,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\"\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\"\
         },\
         \"Runtime\":{\
           \"shape\":\"Runtime\",\
@@ -1899,7 +1954,7 @@
         },\
         \"KMSKeyArn\":{\
           \"shape\":\"KMSKeyArn\",\
-          \"documentation\":\"<p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption\\\">environment variables</a>. When <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html\\\">Lambda SnapStart</a> is activated, this key is also used to encrypt your function's snapshot. If you don't provide a customer managed key, Lambda uses a default service key.</p>\"\
+          \"documentation\":\"<p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption\\\">environment variables</a>. When <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html\\\">Lambda SnapStart</a> is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.</p>\"\
         },\
         \"TracingConfig\":{\
           \"shape\":\"TracingConfig\",\
@@ -1919,7 +1974,7 @@
         },\
         \"ImageConfig\":{\
           \"shape\":\"ImageConfig\",\
-          \"documentation\":\"<p>Container image <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings\\\">configuration values</a> that override the values in the container image Dockerfile.</p>\"\
+          \"documentation\":\"<p>Container image <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms\\\">configuration values</a> that override the values in the container image Dockerfile.</p>\"\
         },\
         \"CodeSigningConfigArn\":{\
           \"shape\":\"CodeSigningConfigArn\",\
@@ -1931,11 +1986,15 @@
         },\
         \"EphemeralStorage\":{\
           \"shape\":\"EphemeralStorage\",\
-          \"documentation\":\"<p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.</p>\"\
+          \"documentation\":\"<p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage\\\">Configuring ephemeral storage (console)</a>.</p>\"\
         },\
         \"SnapStart\":{\
           \"shape\":\"SnapStart\",\
           \"documentation\":\"<p>The function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\\\">SnapStart</a> setting.</p>\"\
+        },\
+        \"LoggingConfig\":{\
+          \"shape\":\"LoggingConfig\",\
+          \"documentation\":\"<p>The function's Amazon CloudWatch Logs configuration settings.</p>\"\
         }\
       }\
     },\
@@ -1948,7 +2007,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -1965,6 +2024,10 @@
         \"Cors\":{\
           \"shape\":\"Cors\",\
           \"documentation\":\"<p>The <a href=\\\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\\\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>\"\
+        },\
+        \"InvokeMode\":{\
+          \"shape\":\"InvokeMode\",\
+          \"documentation\":\"<p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> â This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> â Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href=\\\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\\\">request a quota increase</a>.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -1996,6 +2059,10 @@
         \"CreationTime\":{\
           \"shape\":\"Timestamp\",\
           \"documentation\":\"<p>When the function URL was created, in <a href=\\\"https://www.w3.org/TR/NOTE-datetime\\\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>\"\
+        },\
+        \"InvokeMode\":{\
+          \"shape\":\"InvokeMode\",\
+          \"documentation\":\"<p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> â This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> â Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href=\\\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\\\">request a quota increase</a>.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -2025,7 +2092,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -2072,7 +2139,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         }\
@@ -2084,7 +2151,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         }\
@@ -2096,7 +2163,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -2114,7 +2181,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function or version.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function or version.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -2132,7 +2199,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -2174,7 +2241,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -2396,7 +2463,7 @@
           \"documentation\":\"<p>The size of the function's <code>/tmp</code> directory.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.</p>\"\
+      \"documentation\":\"<p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage\\\">Configuring ephemeral storage (console)</a>.</p>\"\
     },\
     \"EphemeralStorageSize\":{\
       \"type\":\"integer\",\
@@ -2412,11 +2479,11 @@
         },\
         \"StartingPosition\":{\
           \"shape\":\"EventSourcePosition\",\
-          \"documentation\":\"<p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams.</p>\"\
+          \"documentation\":\"<p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>\"\
         },\
         \"StartingPositionTimestamp\":{\
           \"shape\":\"Date\",\
-          \"documentation\":\"<p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.</p>\"\
+          \"documentation\":\"<p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>\"\
         },\
         \"BatchSize\":{\
           \"shape\":\"BatchSize\",\
@@ -2424,11 +2491,11 @@
         },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
-          \"documentation\":\"<p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>\"\
+          \"documentation\":\"<p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>\"\
         },\
         \"ParallelizationFactor\":{\
           \"shape\":\"ParallelizationFactor\",\
-          \"documentation\":\"<p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>\"\
         },\
         \"EventSourceArn\":{\
           \"shape\":\"Arn\",\
@@ -2460,7 +2527,7 @@
         },\
         \"DestinationConfig\":{\
           \"shape\":\"DestinationConfig\",\
-          \"documentation\":\"<p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>\"\
+          \"documentation\":\"<p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.</p>\"\
         },\
         \"Topics\":{\
           \"shape\":\"Topics\",\
@@ -2480,23 +2547,23 @@
         },\
         \"MaximumRecordAgeInSeconds\":{\
           \"shape\":\"MaximumRecordAgeInSeconds\",\
-          \"documentation\":\"<p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records. </p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p> <note> <p>The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed</p> </note>\"\
         },\
         \"BisectBatchOnFunctionError\":{\
           \"shape\":\"BisectBatchOnFunctionError\",\
-          \"documentation\":\"<p>(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>\"\
         },\
         \"MaximumRetryAttempts\":{\
           \"shape\":\"MaximumRetryAttemptsEventSourceMapping\",\
-          \"documentation\":\"<p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>\"\
         },\
         \"TumblingWindowInSeconds\":{\
           \"shape\":\"TumblingWindowInSeconds\",\
-          \"documentation\":\"<p>(Streams only) The duration in seconds of a processing window. The range is 1â900 seconds.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>\"\
         },\
         \"FunctionResponseTypes\":{\
           \"shape\":\"FunctionResponseTypeList\",\
-          \"documentation\":\"<p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>\"\
+          \"documentation\":\"<p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>\"\
         },\
         \"AmazonManagedKafkaEventSourceConfig\":{\
           \"shape\":\"AmazonManagedKafkaEventSourceConfig\",\
@@ -2663,7 +2730,7 @@
         },\
         \"Runtime\":{\
           \"shape\":\"Runtime\",\
-          \"documentation\":\"<p>The runtime environment for the Lambda function.</p>\"\
+          \"documentation\":\"<p>The identifier of the function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\\\">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\\\">Runtime deprecation policy</a>.</p>\"\
         },\
         \"Role\":{\
           \"shape\":\"RoleArn\",\
@@ -2783,7 +2850,7 @@
         },\
         \"EphemeralStorage\":{\
           \"shape\":\"EphemeralStorage\",\
-          \"documentation\":\"<p>The size of the functionâs <code>/tmp</code> directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.</p>\"\
+          \"documentation\":\"<p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage\\\">Configuring ephemeral storage (console)</a>.</p>\"\
         },\
         \"SnapStart\":{\
           \"shape\":\"SnapStartResponse\",\
@@ -2792,6 +2859,10 @@
         \"RuntimeVersionConfig\":{\
           \"shape\":\"RuntimeVersionConfig\",\
           \"documentation\":\"<p>The ARN of the runtime and any errors that occured.</p>\"\
+        },\
+        \"LoggingConfig\":{\
+          \"shape\":\"LoggingConfig\",\
+          \"documentation\":\"<p>The function's Amazon CloudWatch Logs configuration settings.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Details about a function's configuration.</p>\"\
@@ -2817,7 +2888,7 @@
         },\
         \"DestinationConfig\":{\
           \"shape\":\"DestinationConfig\",\
-          \"documentation\":\"<p>A destination for events after they have been sent to a function for processing.</p> <p class=\\\"title\\\"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of an SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of an SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul>\"\
+          \"documentation\":\"<p>A destination for events after they have been sent to a function for processing.</p> <p class=\\\"title\\\"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -2890,6 +2961,10 @@
         \"AuthType\":{\
           \"shape\":\"FunctionUrlAuthType\",\
           \"documentation\":\"<p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\\\">Security and auth model for Lambda function URLs</a>.</p>\"\
+        },\
+        \"InvokeMode\":{\
+          \"shape\":\"InvokeMode\",\
+          \"documentation\":\"<p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> â This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> â Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href=\\\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\\\">request a quota increase</a>.</p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Details about a Lambda function URL.</p>\"\
@@ -2935,7 +3010,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -2987,7 +3062,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         }\
@@ -3006,7 +3081,7 @@
         },\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\"\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\"\
         }\
       }\
     },\
@@ -3016,7 +3091,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         }\
@@ -3037,7 +3112,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"NamespacedFunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3055,7 +3130,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3073,7 +3148,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"NamespacedFunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3112,7 +3187,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3157,6 +3232,10 @@
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
           \"documentation\":\"<p>When the function URL configuration was last updated, in <a href=\\\"https://www.w3.org/TR/NOTE-datetime\\\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>\"\
+        },\
+        \"InvokeMode\":{\
+          \"shape\":\"InvokeMode\",\
+          \"documentation\":\"<p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> â This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> â Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href=\\\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\\\">request a quota increase</a>.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -3256,7 +3335,7 @@
         },\
         \"CompatibleRuntimes\":{\
           \"shape\":\"CompatibleRuntimes\",\
-          \"documentation\":\"<p>The layer's compatible runtimes.</p>\"\
+          \"documentation\":\"<p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\\\">Runtime deprecation policy</a>.</p>\"\
         },\
         \"LicenseInfo\":{\
           \"shape\":\"LicenseInfo\",\
@@ -3274,7 +3353,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"NamespacedFunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3308,7 +3387,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3355,7 +3434,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"NamespacedFunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3535,7 +3614,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"NamespacedFunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3553,7 +3632,7 @@
         },\
         \"ClientContext\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>\",\
+          \"documentation\":\"<p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"X-Amz-Client-Context\"\
         },\
@@ -3620,7 +3699,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"NamespacedFunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3643,6 +3722,127 @@
       },\
       \"documentation\":\"<p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>\",\
       \"deprecated\":true\
+    },\
+    \"InvokeMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"BUFFERED\",\
+        \"RESPONSE_STREAM\"\
+      ]\
+    },\
+    \"InvokeResponseStreamUpdate\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Payload\":{\
+          \"shape\":\"Blob\",\
+          \"documentation\":\"<p>Data returned by your Lambda function.</p>\",\
+          \"eventpayload\":true\
+        }\
+      },\
+      \"documentation\":\"<p>A chunk of the streamed response payload.</p>\",\
+      \"event\":true\
+    },\
+    \"InvokeWithResponseStreamCompleteEvent\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ErrorCode\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>An error code.</p>\"\
+        },\
+        \"ErrorDetails\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The details of any returned error.</p>\"\
+        },\
+        \"LogResult\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The last 4 KB of the execution log, which is base64-encoded.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A response confirming that the event stream is complete.</p>\",\
+      \"event\":true\
+    },\
+    \"InvokeWithResponseStreamRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"FunctionName\"],\
+      \"members\":{\
+        \"FunctionName\":{\
+          \"shape\":\"NamespacedFunctionName\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"FunctionName\"\
+        },\
+        \"InvocationType\":{\
+          \"shape\":\"ResponseStreamingInvocationType\",\
+          \"documentation\":\"<p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) â Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> â Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"X-Amz-Invocation-Type\"\
+        },\
+        \"LogType\":{\
+          \"shape\":\"LogType\",\
+          \"documentation\":\"<p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"X-Amz-Log-Type\"\
+        },\
+        \"ClientContext\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"X-Amz-Client-Context\"\
+        },\
+        \"Qualifier\":{\
+          \"shape\":\"Qualifier\",\
+          \"documentation\":\"<p>The alias name.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"Qualifier\"\
+        },\
+        \"Payload\":{\
+          \"shape\":\"Blob\",\
+          \"documentation\":\"<p>The JSON that you want to provide to your Lambda function as input.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \\\"key\\\": \\\"value\\\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>\"\
+        }\
+      },\
+      \"payload\":\"Payload\"\
+    },\
+    \"InvokeWithResponseStreamResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StatusCode\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>\",\
+          \"location\":\"statusCode\"\
+        },\
+        \"ExecutedVersion\":{\
+          \"shape\":\"Version\",\
+          \"documentation\":\"<p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"X-Amz-Executed-Version\"\
+        },\
+        \"EventStream\":{\
+          \"shape\":\"InvokeWithResponseStreamResponseEvent\",\
+          \"documentation\":\"<p>The stream of response payloads.</p>\"\
+        },\
+        \"ResponseStreamContentType\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The type of data the stream is returning.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"Content-Type\"\
+        }\
+      },\
+      \"payload\":\"EventStream\"\
+    },\
+    \"InvokeWithResponseStreamResponseEvent\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PayloadChunk\":{\
+          \"shape\":\"InvokeResponseStreamUpdate\",\
+          \"documentation\":\"<p>A chunk of the streamed response payload.</p>\"\
+        },\
+        \"InvokeComplete\":{\
+          \"shape\":\"InvokeWithResponseStreamCompleteEvent\",\
+          \"documentation\":\"<p>An object that's returned when the stream has ended and all the payload chunks have been returned.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An object that includes a chunk of the response payload. When the stream has ended, Lambda includes a <code>InvokeComplete</code> object.</p>\",\
+      \"eventstream\":true\
     },\
     \"KMSAccessDeniedException\":{\
       \"type\":\"structure\",\
@@ -3850,7 +4050,7 @@
         },\
         \"CompatibleRuntimes\":{\
           \"shape\":\"CompatibleRuntimes\",\
-          \"documentation\":\"<p>The layer's compatible runtimes.</p>\"\
+          \"documentation\":\"<p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\\\">Runtime deprecation policy</a>.</p>\"\
         },\
         \"LicenseInfo\":{\
           \"shape\":\"LicenseInfo\",\
@@ -3899,7 +4099,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -3971,13 +4171,13 @@
       \"members\":{\
         \"EventSourceArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> â The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> â The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> â The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> â The ARN of the cluster.</p> </li> <li> <p> <b>Amazon MQ</b> â The ARN of the broker.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> â The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> â The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> â The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> â The ARN of the cluster or the ARN of the VPC connection (for <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc\\\">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> â The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> â The ARN of the DocumentDB change stream.</p> </li> </ul>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"EventSourceArn\"\
         },\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4014,7 +4214,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4051,7 +4251,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4169,7 +4369,7 @@
       \"members\":{\
         \"CompatibleRuntime\":{\
           \"shape\":\"Runtime\",\
-          \"documentation\":\"<p>A runtime identifier. For example, <code>go1.x</code>.</p>\",\
+          \"documentation\":\"<p>A runtime identifier. For example, <code>java21</code>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\\\">Runtime deprecation policy</a>.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"CompatibleRuntime\"\
         },\
@@ -4217,7 +4417,7 @@
       \"members\":{\
         \"CompatibleRuntime\":{\
           \"shape\":\"Runtime\",\
-          \"documentation\":\"<p>A runtime identifier. For example, <code>go1.x</code>.</p>\",\
+          \"documentation\":\"<p>A runtime identifier. For example, <code>java21</code>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\\\">Runtime deprecation policy</a>.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"CompatibleRuntime\"\
         },\
@@ -4260,7 +4460,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4318,7 +4518,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"NamespacedFunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4354,12 +4554,47 @@
       \"max\":160,\
       \"pattern\":\"^/mnt/[a-zA-Z0-9-_.]+$\"\
     },\
+    \"LogFormat\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"JSON\",\
+        \"Text\"\
+      ]\
+    },\
+    \"LogGroup\":{\
+      \"type\":\"string\",\
+      \"max\":512,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\.\\\\-_/#A-Za-z0-9]+\"\
+    },\
     \"LogType\":{\
       \"type\":\"string\",\
       \"enum\":[\
         \"None\",\
         \"Tail\"\
       ]\
+    },\
+    \"LoggingConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LogFormat\":{\
+          \"shape\":\"LogFormat\",\
+          \"documentation\":\"<p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>\"\
+        },\
+        \"ApplicationLogLevel\":{\
+          \"shape\":\"ApplicationLogLevel\",\
+          \"documentation\":\"<p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>\"\
+        },\
+        \"SystemLogLevel\":{\
+          \"shape\":\"SystemLogLevel\",\
+          \"documentation\":\"<p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>\"\
+        },\
+        \"LogGroup\":{\
+          \"shape\":\"LogGroup\",\
+          \"documentation\":\"<p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The function's Amazon CloudWatch Logs configuration settings.</p>\"\
     },\
     \"Long\":{\"type\":\"long\"},\
     \"MasterRegion\":{\
@@ -4456,12 +4691,13 @@
       \"type\":\"integer\",\
       \"min\":0\
     },\
+    \"NullableBoolean\":{\"type\":\"boolean\"},\
     \"OnFailure\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"Destination\":{\
           \"shape\":\"DestinationArn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the destination resource.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the destination resource.</p> <p>To retain records of <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations\\\">asynchronous invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.</p> <p>To retain records of failed invocations from <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations\\\">Kinesis and DynamoDB event sources</a>, you can configure an Amazon SNS topic or Amazon SQS queue as the destination.</p> <p>To retain records of failed invocations from <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination\\\">self-managed Kafka</a> or <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination\\\">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A destination for events that failed processing.</p>\"\
@@ -4624,7 +4860,7 @@
         },\
         \"CompatibleRuntimes\":{\
           \"shape\":\"CompatibleRuntimes\",\
-          \"documentation\":\"<p>A list of compatible <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\\\">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>\"\
+          \"documentation\":\"<p>A list of compatible <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\\\">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\\\">Runtime deprecation policy</a>.</p>\"\
         },\
         \"LicenseInfo\":{\
           \"shape\":\"LicenseInfo\",\
@@ -4665,7 +4901,7 @@
         },\
         \"CompatibleRuntimes\":{\
           \"shape\":\"CompatibleRuntimes\",\
-          \"documentation\":\"<p>The layer's compatible runtimes.</p>\"\
+          \"documentation\":\"<p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\\\">Runtime deprecation policy</a>.</p>\"\
         },\
         \"LicenseInfo\":{\
           \"shape\":\"LicenseInfo\",\
@@ -4683,7 +4919,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4714,7 +4950,7 @@
         },\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         }\
@@ -4733,7 +4969,7 @@
         },\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\"\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\"\
         }\
       }\
     },\
@@ -4746,7 +4982,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4762,7 +4998,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4782,7 +5018,7 @@
         },\
         \"DestinationConfig\":{\
           \"shape\":\"DestinationConfig\",\
-          \"documentation\":\"<p>A destination for events after they have been sent to a function for processing.</p> <p class=\\\"title\\\"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of an SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of an SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul>\"\
+          \"documentation\":\"<p>A destination for events after they have been sent to a function for processing.</p> <p class=\\\"title\\\"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -4796,7 +5032,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4850,7 +5086,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -4909,6 +5145,22 @@
       \"max\":1,\
       \"min\":1\
     },\
+    \"RecursiveInvocationException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The exception type.</p>\"\
+        },\
+        \"Message\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The exception message.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
     \"RemoveLayerVersionPermissionRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -4952,7 +5204,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -5046,6 +5298,13 @@
       \"error\":{\"httpStatusCode\":502},\
       \"exception\":true\
     },\
+    \"ResponseStreamingInvocationType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"RequestResponse\",\
+        \"DryRun\"\
+      ]\
+    },\
     \"RoleArn\":{\
       \"type\":\"string\",\
       \"pattern\":\"arn:(aws[a-zA-Z-]*)?:iam::\\\\d{12}:role/?[a-zA-Z_0-9+=,.@\\\\-_/]+\"\
@@ -5074,13 +5333,23 @@
         \"dotnetcore2.1\",\
         \"dotnetcore3.1\",\
         \"dotnet6\",\
+        \"dotnet8\",\
         \"nodejs4.3-edge\",\
         \"go1.x\",\
         \"ruby2.5\",\
         \"ruby2.7\",\
         \"provided\",\
         \"provided.al2\",\
-        \"nodejs18.x\"\
+        \"nodejs18.x\",\
+        \"python3.10\",\
+        \"java17\",\
+        \"ruby3.2\",\
+        \"ruby3.3\",\
+        \"python3.11\",\
+        \"nodejs20.x\",\
+        \"provided.al2023\",\
+        \"python3.12\",\
+        \"java21\"\
       ]\
     },\
     \"RuntimeVersionArn\":{\
@@ -5197,7 +5466,7 @@
           \"documentation\":\"<p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The function's Lambda SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p> <p>SnapStart is supported with the <code>java11</code> runtime. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\\\">Improving startup performance with Lambda SnapStart</a>.</p>\"\
+      \"documentation\":\"<p>The function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\\\">Lambda SnapStart</a> setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>\"\
     },\
     \"SnapStartApplyOn\":{\
       \"type\":\"string\",\
@@ -5362,6 +5631,14 @@
       \"member\":{\"shape\":\"SubnetId\"},\
       \"max\":16\
     },\
+    \"SystemLogLevel\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"DEBUG\",\
+        \"INFO\",\
+        \"WARN\"\
+      ]\
+    },\
     \"TagKey\":{\"type\":\"string\"},\
     \"TagKeyList\":{\
       \"type\":\"list\",\
@@ -5519,7 +5796,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -5593,7 +5870,7 @@
         },\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>\"\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>\"\
         },\
         \"Enabled\":{\
           \"shape\":\"Enabled\",\
@@ -5601,7 +5878,7 @@
         },\
         \"BatchSize\":{\
           \"shape\":\"BatchSize\",\
-          \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> â Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> â Default 100. Max 10,000.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> â Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> â Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> â Default 100. Max 10,000.</p> </li> </ul>\"\
         },\
         \"FilterCriteria\":{\
           \"shape\":\"FilterCriteria\",\
@@ -5609,27 +5886,27 @@
         },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
-          \"documentation\":\"<p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>\"\
+          \"documentation\":\"<p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>\"\
         },\
         \"DestinationConfig\":{\
           \"shape\":\"DestinationConfig\",\
-          \"documentation\":\"<p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>\"\
+          \"documentation\":\"<p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Kafka only) A configuration object that specifies the destination of an event after Lambda processes it.</p>\"\
         },\
         \"MaximumRecordAgeInSeconds\":{\
           \"shape\":\"MaximumRecordAgeInSeconds\",\
-          \"documentation\":\"<p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>\"\
         },\
         \"BisectBatchOnFunctionError\":{\
           \"shape\":\"BisectBatchOnFunctionError\",\
-          \"documentation\":\"<p>(Streams only) If the function returns an error, split the batch in two and retry.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.</p>\"\
         },\
         \"MaximumRetryAttempts\":{\
           \"shape\":\"MaximumRetryAttemptsEventSourceMapping\",\
-          \"documentation\":\"<p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>\"\
         },\
         \"ParallelizationFactor\":{\
           \"shape\":\"ParallelizationFactor\",\
-          \"documentation\":\"<p>(Streams only) The number of batches to process from each shard concurrently.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>\"\
         },\
         \"SourceAccessConfigurations\":{\
           \"shape\":\"SourceAccessConfigurations\",\
@@ -5637,11 +5914,11 @@
         },\
         \"TumblingWindowInSeconds\":{\
           \"shape\":\"TumblingWindowInSeconds\",\
-          \"documentation\":\"<p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>\"\
+          \"documentation\":\"<p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>\"\
         },\
         \"FunctionResponseTypes\":{\
           \"shape\":\"FunctionResponseTypeList\",\
-          \"documentation\":\"<p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>\"\
+          \"documentation\":\"<p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>\"\
         },\
         \"ScalingConfig\":{\
           \"shape\":\"ScalingConfig\",\
@@ -5659,7 +5936,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -5707,7 +5984,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -5749,7 +6026,7 @@
         },\
         \"KMSKeyArn\":{\
           \"shape\":\"KMSKeyArn\",\
-          \"documentation\":\"<p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption\\\">environment variables</a>. When <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html\\\">Lambda SnapStart</a> is activated, this key is also used to encrypt your function's snapshot. If you don't provide a customer managed key, Lambda uses a default service key.</p>\"\
+          \"documentation\":\"<p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption\\\">environment variables</a>. When <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html\\\">Lambda SnapStart</a> is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.</p>\"\
         },\
         \"TracingConfig\":{\
           \"shape\":\"TracingConfig\",\
@@ -5769,15 +6046,19 @@
         },\
         \"ImageConfig\":{\
           \"shape\":\"ImageConfig\",\
-          \"documentation\":\"<p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html\\\">Container image configuration values</a> that override the values in the container image Docker file.</p>\"\
+          \"documentation\":\"<p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms\\\">Container image configuration values</a> that override the values in the container image Docker file.</p>\"\
         },\
         \"EphemeralStorage\":{\
           \"shape\":\"EphemeralStorage\",\
-          \"documentation\":\"<p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.</p>\"\
+          \"documentation\":\"<p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage\\\">Configuring ephemeral storage (console)</a>.</p>\"\
         },\
         \"SnapStart\":{\
           \"shape\":\"SnapStart\",\
           \"documentation\":\"<p>The function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\\\">SnapStart</a> setting.</p>\"\
+        },\
+        \"LoggingConfig\":{\
+          \"shape\":\"LoggingConfig\",\
+          \"documentation\":\"<p>The function's Amazon CloudWatch Logs configuration settings.</p>\"\
         }\
       }\
     },\
@@ -5787,7 +6068,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -5807,7 +6088,7 @@
         },\
         \"DestinationConfig\":{\
           \"shape\":\"DestinationConfig\",\
-          \"documentation\":\"<p>A destination for events after they have been sent to a function for processing.</p> <p class=\\\"title\\\"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of an SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of an SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul>\"\
+          \"documentation\":\"<p>A destination for events after they have been sent to a function for processing.</p> <p class=\\\"title\\\"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -5817,7 +6098,7 @@
       \"members\":{\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
-          \"documentation\":\"<p>The name of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
+          \"documentation\":\"<p>The name or ARN of the Lambda function.</p> <p class=\\\"title\\\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> â <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> â <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> â <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FunctionName\"\
         },\
@@ -5834,6 +6115,10 @@
         \"Cors\":{\
           \"shape\":\"Cors\",\
           \"documentation\":\"<p>The <a href=\\\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\\\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>\"\
+        },\
+        \"InvokeMode\":{\
+          \"shape\":\"InvokeMode\",\
+          \"documentation\":\"<p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> â This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> â Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href=\\\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\\\">request a quota increase</a>.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -5870,6 +6155,10 @@
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
           \"documentation\":\"<p>When the function URL configuration was last updated, in <a href=\\\"https://www.w3.org/TR/NOTE-datetime\\\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>\"\
+        },\
+        \"InvokeMode\":{\
+          \"shape\":\"InvokeMode\",\
+          \"documentation\":\"<p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> â This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> â Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href=\\\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\\\">request a quota increase</a>.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -5897,6 +6186,10 @@
         \"SecurityGroupIds\":{\
           \"shape\":\"SecurityGroupIds\",\
           \"documentation\":\"<p>A list of VPC security group IDs.</p>\"\
+        },\
+        \"Ipv6AllowedForDualStack\":{\
+          \"shape\":\"NullableBoolean\",\
+          \"documentation\":\"<p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\\\">Configuring a Lambda function to access resources in a VPC</a>.</p>\"\
@@ -5915,6 +6208,10 @@
         \"VpcId\":{\
           \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC.</p>\"\
+        },\
+        \"Ipv6AllowedForDualStack\":{\
+          \"shape\":\"NullableBoolean\",\
+          \"documentation\":\"<p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The VPC security groups and subnets that are attached to a Lambda function.</p>\"\

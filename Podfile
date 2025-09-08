@@ -15,6 +15,7 @@ target 'GPTBoard' do
   use_frameworks!
 
   # Pods for GPTBoard
+  pod 'Firebase/Auth'
   pod 'Alamofire'
   pod 'AWSDynamoDB'
   pod 'AWSLambda'

@@ -11,18 +11,17 @@ import Alamofire
 class KeyboardViewController: UIInputViewController {
     struct TextHistory {
         let originalText: String
-        let convertedText: String
+        var convertedText: String
         let contextIndex: Int
+        let suggestions: [String]
+        var suggestionIndex: Int
     }
     
     var textHistoryStack: [TextHistory] = []
     var contextButtons: [UIButton] = []
 
-    // Define a struct to represent the API response
-    struct APIResponse: Codable {
-        let status_code: Int
-        let generated_text: String
-    }
+    // The response and error structs are now defined in APIManager.swift
+    // to be shared across the app.
     
     let buttonTitlesAndContexts = [
             ("😂 Funny", "How would you say this sentence in a funny way"),
@@ -36,7 +35,8 @@ class KeyboardViewController: UIInputViewController {
             ("🥰 Romantic", "How would you say this in a romantic way")
         ]
     
-    private let chatGPTHandler = ChatGPTHandler()
+    // This is no longer needed as we are using the APIManager
+    // private let chatGPTHandler = ChatGPTHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -330,45 +330,7 @@ class KeyboardViewController: UIInputViewController {
 //    }
 
     
-    func generateMessage(originalMessage: String, context: String, completion: @escaping (String?) -> Void) {
-        let url = URL(string: "https://bsrt5yz3g5.execute-api.us-east-1.amazonaws.com/test")!
-        var request = URLRequest(url: url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        request.setValue("jIoQuNLbqI33bejLlRyUp6euTDitYUUXLP1plqCc", forHTTPHeaderField: "x-api-key")
-
-        let payload: [String: Any] = ["message": originalMessage, "context": context]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: payload)
-
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
-
-            do {
-                // Parse the JSON response
-                let decoder = JSONDecoder()
-                let apiResponse = try decoder.decode(APIResponse.self, from: data)
-                print("API RESPONSE: \(data.description)")
-                print("Status Code: \(apiResponse.status_code)")
-                
-                
-                if (apiResponse.status_code == 200) {
-                    print("Generated Text: \(apiResponse.generated_text)")
-                    completion(apiResponse.generated_text.trimmingCharacters(in: .whitespacesAndNewlines))
-                }
-            } catch {
-                print("Error parsing JSON: \(error)")
-            }
-            
-            // Handle your response data here
-            print("Data: \(data)")
-            
-        }
-
-        task.resume()
-    }
+    // This function is now replaced by the APIManager
     
     @objc func handleButtonTap(_ sender: UIButton) {
         let index = sender.tag
@@ -387,28 +349,42 @@ class KeyboardViewController: UIInputViewController {
             }
         }
         
-        self.generateMessage(originalMessage: inputText, context: context) { [weak self] funnyMessage in
+        APIManager.shared.generateSuggestions(for: inputText, context: context) { [weak self] result in
             DispatchQueue.main.async {
-                guard let funnyMessage = funnyMessage else {return}
-                print("FUNNY MESSAGE" + funnyMessage)
-                for _ in 0 ..< originalText.count
-                {
-                    self?.textDocumentProxy.deleteBackward()
-                }
-                let textHistory = TextHistory(originalText: inputText, convertedText: funnyMessage, contextIndex: index)
+                guard let self = self else { return }
 
-                if let textInfo = self?.textHistoryStack.popLast() {
-                    self?.updateActiveButton(at: textInfo.contextIndex, active: false)
+                switch result {
+                case .success(let suggestions):
+                    guard !suggestions.isEmpty else {
+                        print("Received empty suggestions.")
+                        return
+                    }
+                    
+                    let firstSuggestion = suggestions[0]
+                    
+                    for _ in 0 ..< originalText.count {
+                        self.textDocumentProxy.deleteBackward()
+                    }
+                    
+                    let textHistory = TextHistory(originalText: inputText, convertedText: firstSuggestion, contextIndex: index, suggestions: suggestions, suggestionIndex: 0)
+
+                    if let textInfo = self.textHistoryStack.popLast() {
+                        self.updateActiveButton(at: textInfo.contextIndex, active: false)
+                    }
+                    
+                    self.textHistoryStack.append(textHistory)
+                    if self.textHistoryStack.count > 10 {
+                        self.textHistoryStack.removeFirst()
+                    }
+                    
+                    self.updateActiveButton(at: index, active: true)
+                    self.textDocumentProxy.insertText(firstSuggestion)
+
+                case .failure(let error):
+                    // The UI will no longer freeze because errors are handled.
+                    print("Error generating suggestions: \(error.localizedDescription)")
+                    // Optionally, you could show an alert to the user here.
                 }
-                self?.textHistoryStack.append(textHistory)
-                // Limit the stack size to 10
-                if self?.textHistoryStack.count ?? 0 > 10 {
-                    self?.textHistoryStack.removeFirst()
-                }
-                
-                self?.updateActiveButton(at: index, active: true)
-                self?.textDocumentProxy.insertText(funnyMessage)
-//                self?.advanceToNextInputMode()
             }
         }
     }
@@ -446,7 +422,7 @@ class KeyboardViewController: UIInputViewController {
     @objc func regenerateButtonTapped() {
         print("REGEN")
         // Handle clear button tap
-        guard let textInfo = textHistoryStack.last else {
+        guard var textInfo = textHistoryStack.popLast() else {
             print("No textInfo!")
             return
         }
@@ -455,10 +431,17 @@ class KeyboardViewController: UIInputViewController {
         for _ in textInfo.convertedText {
             textDocumentProxy.deleteBackward()
         }
-
-        print("Original text: " + textInfo.originalText)
-        // Regenerate the text using the original text and context
-        requestMessageConversion(originalText: textInfo.originalText, index: textInfo.contextIndex)
+        
+        // Get the next suggestion
+        textInfo.suggestionIndex = (textInfo.suggestionIndex + 1) % textInfo.suggestions.count
+        let nextSuggestion = textInfo.suggestions[textInfo.suggestionIndex]
+        textInfo.convertedText = nextSuggestion
+        
+        // Insert the new suggestion
+        textDocumentProxy.insertText(nextSuggestion)
+        
+        // Push the updated history back onto the stack
+        textHistoryStack.append(textInfo)
     }
 
     func updateActiveButton(at index: Int, active: Bool) {
