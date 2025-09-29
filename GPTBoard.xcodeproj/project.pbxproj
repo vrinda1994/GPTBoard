@@ -26,6 +26,9 @@
 		CEA4FA5929E53553008E86EA /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4FA5829E53553008E86EA /* KeyboardViewController.swift */; };
 		CEA4FA5D29E53553008E86EA /* CustomKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CEA4FA5629E53552008E86EA /* CustomKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CEA4FA6529E535D4008E86EA /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4FA6429E535D4008E86EA /* BackgroundTaskManager.swift */; };
+		CEBF7A652E8A3050007B91BD /* FirebaseTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF7A642E8A3050007B91BD /* FirebaseTokenService.swift */; };
+		CEBF7A662E8A3081007B91BD /* FirebaseTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF7A642E8A3050007B91BD /* FirebaseTokenService.swift */; };
+		CEBF7A6A2E8A334D007B91BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11C2B5A2E5D806900256B32 /* GoogleService-Info.plist */; };
 		D9A5B748A7CEFAF537BEA182 /* Pods_CustomKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C6AFCDAB7420B33810D2DB /* Pods_CustomKeyboard.framework */; };
 		EF9D3ABC99714E17767F42E5 /* Pods_GPTBoard_GPTBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF98E28E7A881CEDBEFD58A /* Pods_GPTBoard_GPTBoardUITests.framework */; };
 /* End PBXBuildFile section */
@@ -102,6 +105,7 @@
 		CEA4FA6229E5356E008E86EA /* CustomKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CustomKeyboard.entitlements; sourceTree = "<group>"; };
 		CEA4FA6329E53578008E86EA /* GPTBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPTBoard.entitlements; sourceTree = "<group>"; };
 		CEA4FA6429E535D4008E86EA /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		CEBF7A642E8A3050007B91BD /* FirebaseTokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTokenService.swift; sourceTree = "<group>"; };
 		EFFADC88CC3C5FE59F91D06D /* Pods_GPTBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPTBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -225,6 +229,7 @@
 		CEA4FA5729E53553008E86EA /* CustomKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				CEBF7A642E8A3050007B91BD /* FirebaseTokenService.swift */,
 				CEA4FA6229E5356E008E86EA /* CustomKeyboard.entitlements */,
 				CEA4FA5829E53553008E86EA /* KeyboardViewController.swift */,
 				CE4D1D6E29E6A3FD00DF135A /* CustomInputAccessoryView.swift */,
@@ -402,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBF7A6A2E8A334D007B91BD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBF7A662E8A3081007B91BD /* FirebaseTokenService.swift in Sources */,
 				CEA4FA2B29E534FA008E86EA /* ContentView.swift in Sources */,
 				CEA4FA6529E535D4008E86EA /* BackgroundTaskManager.swift in Sources */,
 				CE4D1D7129E9368B00DF135A /* ChatGPTHandler.swift in Sources */,
@@ -574,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBF7A652E8A3050007B91BD /* FirebaseTokenService.swift in Sources */,
 				CE4D1D7629E9384600DF135A /* ChatGPTHandler.swift in Sources */,
 				CE4D1D6729E69D7B00DF135A /* CustomInputView.swift in Sources */,
 				A11C2B5C2E6652F500256B32 /* APIManager.swift in Sources */,
@@ -653,7 +661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -707,7 +715,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -737,7 +745,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -771,7 +779,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -795,7 +803,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T4FCT5H8Z5;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mmcm.GPTBoardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -816,7 +824,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T4FCT5H8Z5;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mmcm.GPTBoardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -877,7 +885,7 @@
 				INFOPLIST_FILE = CustomKeyboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CustomKeyboard;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -905,7 +913,7 @@
 				INFOPLIST_FILE = CustomKeyboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CustomKeyboard;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
