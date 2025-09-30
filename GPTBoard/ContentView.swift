@@ -78,6 +78,10 @@ public class AuthViewModel: ObservableObject {
                 self?.startTokenRefresh(for: user)
                 // Also refresh token immediately to update shared UserDefaults
                 self?.refreshTokenAndUpdateSharedDefaults(for: user)
+
+                // Fetch contexts when user is authenticated
+                print("DEBUG: User authenticated, calling refreshContextsInBackground")
+                APIManager.shared.refreshContextsInBackground()
             } else {
                 // User is signed out, stop token refresh
                 self?.stopTokenRefresh()
@@ -361,14 +365,16 @@ class KeyboardStatusChecker: ObservableObject {
         // Check if GPTBoard keyboard is added to the system
         if let keyboards = UserDefaults.standard.object(forKey: "AppleKeyboards") as? [String] {
             isKeyboardAdded = keyboards.contains { $0.contains("GPTBoard") || $0.contains("com.mmcm.gptboard") }
+        } else {
+            isKeyboardAdded = false
         }
 
-        // Check if keyboard has full access by testing shared UserDefaults access
+        // Check if keyboard has full access
+        // The keyboard extension will set this flag when it has full access
         if let sharedDefaults = UserDefaults(suiteName: "group.com.mmcm.gptboard") {
-            // If we can write to shared defaults, we likely have full access
-            sharedDefaults.set("test", forKey: "testKey")
-            hasFullAccess = sharedDefaults.object(forKey: "testKey") != nil
-            sharedDefaults.removeObject(forKey: "testKey")
+            hasFullAccess = sharedDefaults.bool(forKey: "keyboardHasFullAccess")
+        } else {
+            hasFullAccess = false
         }
     }
 
@@ -484,6 +490,7 @@ struct KeyboardCompleteView: View {
 // MARK: - KeyboardSetupView
 struct KeyboardSetupView: View {
     @StateObject private var keyboardStatus = KeyboardStatusChecker()
+    @State private var showTestKeyboard = false
 
     var body: some View {
         Group {
@@ -495,11 +502,15 @@ struct KeyboardSetupView: View {
         }
         .onAppear {
             keyboardStatus.refreshStatus()
+            APIManager.shared.refreshContextsInBackground()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 keyboardStatus.refreshStatus()
             }
+        }
+        .sheet(isPresented: $showTestKeyboard) {
+            KeyboardTestView(keyboardStatus: keyboardStatus)
         }
     }
 
@@ -592,13 +603,141 @@ struct KeyboardSetupView: View {
                 }
                 .primaryButtonStyle()
 
-                Text("Status updates automatically when you return from Settings")
-                    .font(.caption)
-                    .foregroundColor(Color.secondaryText)
-                    .multilineTextAlignment(.center)
+                if keyboardStatus.isKeyboardAdded {
+                    Button(action: {
+                        showTestKeyboard = true
+                    }) {
+                        Text("Test Keyboard & Enable Full Access")
+                    }
+                    .successButtonStyle()
+
+                    Text("Use this to test the keyboard and verify full access")
+                        .font(.caption)
+                        .foregroundColor(Color.secondaryText)
+                        .multilineTextAlignment(.center)
+                } else {
+                    Text("Status updates automatically when you return from Settings")
+                        .font(.caption)
+                        .foregroundColor(Color.secondaryText)
+                        .multilineTextAlignment(.center)
+                }
             }
         }
         .padding()
+    }
+}
+
+// MARK: - KeyboardTestView
+struct KeyboardTestView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var keyboardStatus: KeyboardStatusChecker
+    @State private var testText: String = ""
+    @FocusState private var isTextFieldFocused: Bool
+
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 20) {
+                VStack(spacing: 12) {
+                    Image(systemName: "keyboard")
+                        .font(.system(size: 60))
+                        .foregroundColor(.blue)
+
+                    Text("Test GPTBoard Keyboard")
+                        .font(.title2)
+                        .fontWeight(.bold)
+
+                    Text("Tap the text field below and switch to GPTBoard using the globe icon")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                }
+                .padding(.top, 20)
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Instructions:")
+                        .font(.headline)
+
+                    HStack(alignment: .top, spacing: 8) {
+                        Text("1.")
+                            .fontWeight(.semibold)
+                        Text("Tap the text field below")
+                    }
+
+                    HStack(alignment: .top, spacing: 8) {
+                        Text("2.")
+                            .fontWeight(.semibold)
+                        Text("Long press the globe icon (🌐) on your keyboard")
+                    }
+
+                    HStack(alignment: .top, spacing: 8) {
+                        Text("3.")
+                            .fontWeight(.semibold)
+                        Text("Select 'GPTBoard' from the keyboard list")
+                    }
+
+                    HStack(alignment: .top, spacing: 8) {
+                        Text("4.")
+                            .fontWeight(.semibold)
+                        Text("If prompted, enable 'Allow Full Access'")
+                    }
+                }
+                .font(.subheadline)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                .padding(.horizontal)
+
+                TextField("Type here to test...", text: $testText)
+                    .focused($isTextFieldFocused)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                    .font(.body)
+
+                if keyboardStatus.hasFullAccess {
+                    HStack(spacing: 8) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.green)
+                        Text("Full Access Enabled!")
+                            .fontWeight(.semibold)
+                    }
+                    .padding()
+                    .background(Color.green.opacity(0.1))
+                    .cornerRadius(8)
+                }
+
+                Spacer()
+
+                Button(action: {
+                    keyboardStatus.refreshStatus()
+                    if keyboardStatus.hasFullAccess {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }) {
+                    Text(keyboardStatus.hasFullAccess ? "Done" : "Check Status")
+                }
+                .primaryButtonStyle()
+                .padding(.horizontal)
+                .padding(.bottom, 20)
+            }
+            .navigationBarItems(trailing: Button("Close") {
+                presentationMode.wrappedValue.dismiss()
+            })
+            .onAppear {
+                // Auto-focus the text field when view appears
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    isTextFieldFocused = true
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                // Refresh status when returning to the app
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    keyboardStatus.refreshStatus()
+                }
+            }
+        }
     }
 }
 
@@ -671,6 +810,10 @@ struct ContentView: View {
                 LoginView()
                     .environmentObject(viewModel)
             }
+        }
+        .onAppear {
+            print("DEBUG: ContentView onAppear called")
+            APIManager.shared.refreshContextsInBackground()
         }
     }
 }

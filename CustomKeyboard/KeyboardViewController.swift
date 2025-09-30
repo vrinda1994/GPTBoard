@@ -9,6 +9,54 @@ import UIKit
 import Alamofire
 import Foundation
 
+// Local context structures for keyboard extension
+struct KeyboardContextItem: Codable {
+    let key: String
+    let display_name: String
+    let prompt: String
+}
+
+// Local context manager for keyboard extension
+class KeyboardContextManager {
+    static let shared = KeyboardContextManager()
+    private let contextsCacheKey = "cachedContextsData"
+    private let contextsCacheTimestampKey = "contextsCacheTimestamp"
+    private let contextsCacheTimeout: TimeInterval = 12 * 60 * 60 // 12 hours
+
+    private init() {}
+
+    func getContextsWithFallback() -> [KeyboardContextItem] {
+        // Only read from UserDefaults cache - no local fallback
+        // APIManager is responsible for providing fallback contexts
+        if let cachedContexts = getCachedContexts() {
+            return cachedContexts
+        }
+
+        // If no cache available, return empty array
+        // The main app should populate the cache via APIManager
+        print("No cached contexts found in keyboard extension")
+        return []
+    }
+
+    private func getCachedContexts() -> [KeyboardContextItem]? {
+        guard let sharedDefaults = UserDefaults(suiteName: "group.com.mmcm.gptboard"),
+              let timestamp = sharedDefaults.object(forKey: contextsCacheTimestampKey) as? Date,
+              Date().timeIntervalSince(timestamp) < contextsCacheTimeout,
+              let contextData = sharedDefaults.data(forKey: contextsCacheKey) else {
+            return nil
+        }
+
+        do {
+            let contexts = try JSONDecoder().decode([KeyboardContextItem].self, from: contextData)
+            return contexts.isEmpty ? nil : contexts
+        } catch {
+            print("Failed to decode cached contexts: \(error)")
+            return nil
+        }
+    }
+
+}
+
 class KeyboardViewController: UIInputViewController {
     struct TextHistory {
         let originalText: String
@@ -22,8 +70,8 @@ class KeyboardViewController: UIInputViewController {
     var contextButtons: [UIButton] = []
     var isProcessingRequest = false
     var currentLoadingButton: UIButton?
-    var textChangeTimer: Timer?
     var hasShownKeyboardBefore = false
+    var lastKnownText: String = ""
 
     // Batch caching properties
     var isBatchPreloading = false
@@ -40,39 +88,73 @@ class KeyboardViewController: UIInputViewController {
     private var cachedUnauthenticatedView: UIView?
     private var cachedTokenExpiredView: UIView?
 
+    // Track current UI state to avoid unnecessary rebuilds
+    private enum UIState {
+        case noFullAccess
+        case unauthenticated
+        case loadingContexts
+        case instructions
+        case aiButtons
+    }
+    private var currentUIState: UIState?
+
     // The response and error structs are now defined in APIManager.swift
     // to be shared across the app.
 
 
-    let buttonTitlesAndContexts = [
-            ("😂 Funny", "How would you say this sentence in a funny way"),
-            ("😏 Snarky", "Make this sentence snarky"),
-            ("🤓 Witty", "Make this sentence witty"),
-            ("🤬 Insult", "Convert this sentence into an insult"),
-            ("️‍🔥 GenZ", "How would a genz say this line"),
-            ("🙃 Millennial", "How would a millennial say this line"),
-            ("Emojis", "Convert this sentence into all emojis"),
-            ("🏰 Medieval", "Make this sentence into how they would say it in medieval times"),
-            ("🥰 Romantic", "How would you say this in a romantic way")
-        ]
+    // Dynamic contexts from APIManager (with fallback)
+    var buttonTitlesAndContexts: [(String, String)] = []
+    var contextItems: [KeyboardContextItem] = []
+    var isLoadingContexts = false
     
     // This is no longer needed as we are using the APIManager
     // private let chatGPTHandler = ChatGPTHandler()
-    
+
+    private func loadContexts() {
+        contextItems = KeyboardContextManager.shared.getContextsWithFallback()
+
+        if contextItems.isEmpty {
+            print("No contexts loaded, will show loading UI")
+            isLoadingContexts = false // Show loading UI
+        } else {
+            // Store display_name for UI (keeping original structure for button creation)
+            buttonTitlesAndContexts = contextItems.map { ($0.display_name, $0.prompt) }
+            print("Loaded \(buttonTitlesAndContexts.count) contexts for keyboard")
+            isLoadingContexts = false
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Set full access flag - keyboard can only run with full access enabled
+        setFullAccessFlag()
+
+        // Load contexts from cache (with fallback to hardcoded)
+        loadContexts()
+
         // Set modern gradient background
         setupGradientBackground()
 
         // Check authentication before setting up UI
         refreshUIBasedOnAuthState()
 
-        // Start observing text changes
-        startTextChangeObserver()
+        // Note: Background refresh is handled by the main app
+    }
+
+    private func setFullAccessFlag() {
+        // Use the built-in hasFullAccess property from UIInputViewController
+        if let sharedDefaults = UserDefaults(suiteName: "group.com.mmcm.gptboard") {
+            sharedDefaults.set(self.hasFullAccess, forKey: "keyboardHasFullAccess")
+            sharedDefaults.synchronize()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        // Update full access flag when keyboard appears
+        setFullAccessFlag()
 
         // If this is the first time showing, automatically switch to system keyboard
         if !hasShownKeyboardBefore {
@@ -92,17 +174,51 @@ class KeyboardViewController: UIInputViewController {
             }
         }
 
+        // Track current text
+        lastKnownText = textDocumentProxy.documentContextBeforeInput ?? ""
+
         // Re-check authentication state when keyboard appears
         refreshUIBasedOnAuthState()
 
-        // Preload suggestions if text has changed
-        preloadSuggestionsIfNeeded()
+        // Only preload suggestions if Full Access is enabled (already checked in refreshUIBasedOnAuthState)
+        if hasFullAccess {
+            preloadSuggestionsIfNeeded()
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        // Stop observing text changes
-        stopTextChangeObserver()
+    }
+
+    override func textDidChange(_ textInput: UITextInput?) {
+        super.textDidChange(textInput)
+
+        let currentText = textDocumentProxy.documentContextBeforeInput ?? ""
+
+        // Detect if text was cleared (message was sent)
+        if !lastKnownText.isEmpty && currentText.isEmpty && !textHistoryStack.isEmpty {
+            // Clear history since message was sent
+            textHistoryStack.removeAll()
+
+            // Switch to system keyboard
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.advanceToNextInputMode()
+            }
+        } else {
+            // Check if UI needs to be updated based on text presence
+            // Only refresh if we're authenticated and not processing
+            if isUserAuthenticated() && !isProcessingRequest {
+                let hasText = !currentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+                let currentlyShowingButtons = !contextButtons.isEmpty
+
+                // If state changed, refresh UI
+                if hasText != currentlyShowingButtons {
+                    refreshUIBasedOnAuthState()
+                }
+            }
+        }
+
+        lastKnownText = currentText
     }
 
     private func setupGradientBackground() {
@@ -147,7 +263,10 @@ class KeyboardViewController: UIInputViewController {
         // Re-setup gradient background
         setupGradientBackground()
 
-        if isUserAuthenticated() {
+        // Check if keyboard has full access first
+        if !self.hasFullAccess {
+            setupNoFullAccessUI()
+        } else if isUserAuthenticated() {
             setupUI()
         } else {
             setupUnauthenticatedUI()
@@ -155,6 +274,12 @@ class KeyboardViewController: UIInputViewController {
     }
 
     private func setupUI() {
+        // Check if contexts are loaded
+        if contextItems.isEmpty && !isLoadingContexts {
+            setupLoadingUI()
+            return
+        }
+
         // Check if there's text to transform
         if let inputText = textDocumentProxy.documentContextBeforeInput, !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             setupAIButtonsUI()
@@ -195,6 +320,104 @@ class KeyboardViewController: UIInputViewController {
         return authState
     }
 
+
+    private func setupLoadingUI() {
+        // Create loading container with glass morphism
+        let loadingContainer = UIView()
+        addGlassMorphismEffect(to: loadingContainer)
+
+        // Create loading spinner
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = .label
+        spinner.startAnimating()
+
+        // Create loading text
+        let loadingLabel = UILabel()
+        loadingLabel.text = "Fetching awesomeness..."
+        loadingLabel.textAlignment = .center
+        loadingLabel.textColor = .label
+        loadingLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+
+        // Create stack view
+        let stackView = UIStackView(arrangedSubviews: [spinner, loadingLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.alignment = .center
+
+        loadingContainer.addSubview(stackView)
+
+        // Setup constraints
+        loadingContainer.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(loadingContainer)
+
+        NSLayoutConstraint.activate([
+            // Container constraints
+            loadingContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loadingContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            loadingContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+
+            // Stack view constraints
+            stackView.topAnchor.constraint(equalTo: loadingContainer.topAnchor, constant: 40),
+            stackView.leadingAnchor.constraint(equalTo: loadingContainer.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: loadingContainer.trailingAnchor, constant: -20),
+            stackView.bottomAnchor.constraint(equalTo: loadingContainer.bottomAnchor, constant: -40)
+        ])
+    }
+
+    private func setupNoFullAccessUI() {
+        // Create container with glass morphism
+        let container = UIView()
+        addGlassMorphismEffect(to: container)
+
+        // Create icon
+        let iconLabel = UILabel()
+        iconLabel.text = "⚠️"
+        iconLabel.font = UIFont.systemFont(ofSize: 48)
+        iconLabel.textAlignment = .center
+
+        // Create message label
+        let messageLabel = UILabel()
+        messageLabel.text = "Full Access Required"
+        messageLabel.textAlignment = .center
+        messageLabel.numberOfLines = 0
+        messageLabel.textColor = .label
+        messageLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+
+        // Create instruction label
+        let instructionLabel = UILabel()
+        instructionLabel.text = "To use GPTBoard, enable 'Allow Full Access' in:\nSettings → Keyboards → GPTBoard"
+        instructionLabel.textAlignment = .center
+        instructionLabel.numberOfLines = 0
+        instructionLabel.textColor = .secondaryLabel
+        instructionLabel.font = UIFont.systemFont(ofSize: 14)
+
+        // Create stack view
+        let stackView = UIStackView(arrangedSubviews: [iconLabel, messageLabel, instructionLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        stackView.alignment = .center
+
+        container.addSubview(stackView)
+        view.addSubview(container)
+
+        container.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            container.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            container.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            stackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 24),
+            stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
+            stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -24)
+        ])
+    }
 
     private func setupUnauthenticatedUI() {
         // Use cached view if available
@@ -421,34 +644,6 @@ class KeyboardViewController: UIInputViewController {
         ])
     }
 
-    private func startTextChangeObserver() {
-        // Use a timer to periodically check for text changes since textDocumentProxy doesn't send notifications
-        textChangeTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
-            self?.checkForTextChanges()
-        }
-    }
-
-    private func stopTextChangeObserver() {
-        textChangeTimer?.invalidate()
-        textChangeTimer = nil
-    }
-
-    private func checkForTextChanges() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-
-            // Only refresh if we're authenticated and not processing
-            guard self.isUserAuthenticated() && !self.isProcessingRequest else { return }
-
-            let hasText = self.textDocumentProxy.documentContextBeforeInput?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false
-            let currentlyShowingButtons = !self.contextButtons.isEmpty
-
-            // If state changed, refresh UI
-            if hasText != currentlyShowingButtons {
-                self.refreshUIBasedOnAuthState()
-            }
-        }
-    }
 
     private func setupScrollViewAndButtonsStackView() {
         let buttonContainer = createButtonsFor3x3Grid()
@@ -623,8 +818,10 @@ class KeyboardViewController: UIInputViewController {
                     let (title, _) = buttonTitlesAndContexts[buttonIndex]
                     let button = createModernContextButton(title: title, colorTheme: buttonColors[buttonIndex], tag: buttonIndex)
 
-                    // Set height constraint for consistent sizing
-                    button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+                    // Set height constraint for consistent sizing with lower priority
+                    let heightConstraint = button.heightAnchor.constraint(equalToConstant: 44)
+                    heightConstraint.priority = .defaultHigh // 750 instead of 1000
+                    heightConstraint.isActive = true
 
                     contextButtons.append(button)
                     rowStackView.addArrangedSubview(button)
@@ -753,8 +950,8 @@ class KeyboardViewController: UIInputViewController {
 
         print("Preloading suggestions for text: \(currentText)")
 
-        // Extract all context keys from button titles
-        let contexts = buttonTitlesAndContexts.map { $0.0 }
+        // Extract all context keys for API calls
+        let contexts = contextItems.map { $0.key }
 
         APIManager.shared.generateBatchSuggestions(for: currentText, contexts: contexts) { [weak self] result in
             DispatchQueue.main.async {
@@ -828,7 +1025,7 @@ class KeyboardViewController: UIInputViewController {
     }
 
     func requestMessageConversion(originalText: String, index: Int) {
-        let (contextKey, context) = buttonTitlesAndContexts[index]
+        let contextKey = contextItems[index].key
         var inputText = originalText
 
         // Always use the original text from history if we have any transformations
@@ -875,8 +1072,30 @@ class KeyboardViewController: UIInputViewController {
                 case .failure(let error):
                     self.stopLoadingAnimation()
 
+                    let nsError = error as NSError
+
+                    // Check if this is a network error (no full access)
+                    if nsError.domain == NSURLErrorDomain {
+                        switch nsError.code {
+                        case NSURLErrorNotConnectedToInternet,
+                             NSURLErrorNetworkConnectionLost,
+                             NSURLErrorCannotFindHost,
+                             NSURLErrorCannotConnectToHost,
+                             NSURLErrorTimedOut:
+                            print("Network error detected - showing no full access UI")
+                            self.view.subviews.forEach { $0.removeFromSuperview() }
+                            self.contextButtons.removeAll()
+                            self.textHistoryStack.removeAll()
+                            self.setupGradientBackground()
+                            self.setupNoFullAccessUI()
+                            return
+                        default:
+                            break
+                        }
+                    }
+
                     // Check if this is a 401 authentication error (token expired)
-                    if let nsError = error as NSError?, nsError.code == 401 {
+                    if nsError.code == 401 {
                         // Token has expired, clear cache and switch to unauthenticated UI
                         self.cachedAuthState = false
                         self.lastAuthCheck = Date()
@@ -921,11 +1140,14 @@ class KeyboardViewController: UIInputViewController {
                 self.textDocumentProxy.deleteBackward()
             }
         }
-        guard let textInfo = textHistoryStack.last else {
-            return
+        if let textInfo = textHistoryStack.last {
+            updateActiveButton(at: textInfo.contextIndex, active: false)
         }
-        updateActiveButton(at: textInfo.contextIndex, active: false)
         textHistoryStack = []
+        lastKnownText = ""
+
+        // Switch to system keyboard after clearing
+        self.advanceToNextInputMode()
     }
 
     @objc func regenerateButtonTapped() {
